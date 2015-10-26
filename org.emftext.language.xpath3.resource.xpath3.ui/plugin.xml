@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.emftext.access.syntax.ui">
+		<metaInformationProvider class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3UIMetaInformation" id="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3UIMetaInformation">
+		</metaInformationProvider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors">
+		<editor class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3Editor" contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor" extensions="xpath3" icon="icons/editor_icon.gif" id="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3Editor" name="EMFText XPath 2.0 Editor">
+			<contentTypeBinding contentTypeId="org.emftext.language.xpath3.resource.xpath3">
+			</contentTypeBinding>
+		</editor>
+	</extension>
+	
+	<extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3PreferenceInitializer">
+		</initializer>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+		<page name="EMFText XPath 2.0 Editor" id="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3PreferencePage" class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3PreferencePage" category="org.eclipse.ui.preferencePages.GeneralTextEditor">
+		</page>
+		<page name="Syntax Coloring" id="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3SyntaxColoringPreferencePage" class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3SyntaxColoringPreferencePage" category="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3PreferencePage">
+		</page>
+		<page name="Brackets" id="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3BracketPreferencePage" class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3BracketPreferencePage" category="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3PreferencePage">
+		</page>
+		<page name="Content Assist" id="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3ContentAssistPreferencePage" class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3ContentAssistPreferencePage" category="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3PreferencePage">
+		</page>
+	</extension>
+	
+	<extension point="org.eclipse.ui.newWizards">
+		<category id="org.emftext.runtime.ui.EMFTextFileCategory" name="EMFText File">
+		</category>
+		<wizard category="org.emftext.runtime.ui.EMFTextFileCategory" icon="/icons/default_new_icon.gif" class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3NewFileWizard" id="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3NewFileWizard" name="EMFText .xpath3 file">
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+		<markerResolutionGenerator class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3MarkerResolutionGenerator" markerType="org.emftext.language.xpath3.resource.xpath3.problem">
+		</markerResolutionGenerator>
+	</extension>
+	
+	<extension point="org.eclipse.core.filebuffers.annotationModelCreation">
+		<factory class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3AnnotationModelFactory" extensions="xpath3">
+		</factory>
+	</extension>
+	
+	<extension point="org.eclipse.core.contenttype.contentTypes">
+		<content-type id="org.emftext.language.xpath3.resource.xpath3" name=".xpath3 File" base-type="org.eclipse.core.runtime.text" file-extensions="xpath3">
+		</content-type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.documentProviders">
+		<provider class="org.eclipse.ui.editors.text.TextFileDocumentProvider" extensions="xpath3" id="org.emftext.language.xpath3.resource.xpath3.ui.provider">
+		</provider>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="org.emftext.language.xpath3.resource.xpath3.ui.occurences">
+		</type>
+		<type name="org.emftext.language.xpath3.resource.xpath3.ui.occurences.declaration" super="org.emftext.language.xpath3.resource.xpath3.ui.occurences">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification annotationType="org.emftext.language.xpath3.resource.xpath3.ui.occurences" label="Occurrences (in .xpath3 files)" icon="/icons/occurrence_icon.gif" textPreferenceKey="xpath3.occurrenceIndication" textPreferenceValue="false" highlightPreferenceKey="xpath3.occurrenceHighlighting" highlightPreferenceValue="true" contributesToHeader="false" overviewRulerPreferenceKey="xpath3.occurrenceIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="xpath3.occurrenceIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="xpath3.occurrenceIndicationColor" colorPreferenceValue="212,212,212" presentationLayer="4" showInNextPrevDropdownToolbarActionKey="xpath3.showOccurrenceInNextPrevDropdownToolbarAction" showInNextPrevDropdownToolbarAction="true" isGoToNextNavigationTargetKey="xpath3.isOccurrenceGoToNextNavigationTarget" isGoToNextNavigationTarget="false" isGoToPreviousNavigationTargetKey="xpath3.isOccurrenceGoToPreviousNavigationTarget" isGoToPreviousNavigationTarget="false" textStylePreferenceKey="xpath3.occurrenceTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+		<specification annotationType="org.emftext.language.xpath3.resource.xpath3.ui.occurences.declaration" label="Declarations (in .xpath3 files)" textPreferenceKey="xpath3.declarationIndication" textPreferenceValue="false" highlightPreferenceKey="xpath3.declarationHighlighting" highlightPreferenceValue="true" overviewRulerPreferenceKey="xpath3.declarationIndicationInOverviewRuler" overviewRulerPreferenceValue="true" verticalRulerPreferenceKey="xpath3.declarationIndicationInVerticalRuler" verticalRulerPreferenceValue="false" colorPreferenceKey="xpath3.declarationIndicationColor" colorPreferenceValue="240,216,168" presentationLayer="4" textStylePreferenceKey="xpath3.declarationTextStyle" textStylePreferenceValue="NONE">
+		</specification>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commands">
+		<category description="All commands belonging to Xpath3" id="org.emftext.language.xpath3.resource.xpath3.ui.command.category" name="Xpath3">
+		</category>
+		<command categoryId="org.emftext.language.xpath3.resource.xpath3.ui.command.category" description="Toggle comment of the selected lines" id="org.emftext.language.xpath3.resource.xpath3.ui.command.togglecomment" name="Toggle Comment">
+		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.handlers">
+		<handler class="org.emftext.language.xpath3.resource.xpath3.ui.Xpath3ToggleCommentHandler" commandId="org.emftext.language.xpath3.resource.xpath3.ui.command.togglecomment">
+		</handler>
+	</extension>
+	
+	<extension point="org.eclipse.ui.contexts">
+		<context name="Editing Xpath3 Files" description="Editing Xpath3 Files Context" parentId="org.eclipse.ui.textEditorScope" id="org.emftext.language.xpath3.resource.xpath3.EditorScope">
+		</context>
+	</extension>
+	
+	<extension point="org.eclipse.ui.bindings">
+		<key sequence="M1+7" commandId="org.emftext.language.xpath3.resource.xpath3.ui.command.togglecomment" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" contextId="org.emftext.language.xpath3.resource.xpath3.EditorScope">
+		</key>
+	</extension>
+	
+</plugin>
