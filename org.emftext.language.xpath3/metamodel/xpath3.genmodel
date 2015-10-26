@@ -326,5 +326,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xpath3.ecore#//Comment/text"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xpath3.ecore#//Comment/comment"/>
     </genClasses>
+    <genClasses ecoreClass="xpath3.ecore#//LetExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xpath3.ecore#//LetExpr/clause"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xpath3.ecore#//LetExpr/inExpr"/>
+    </genClasses>
+    <genClasses ecoreClass="xpath3.ecore#//SimpleLetClause">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xpath3.ecore#//SimpleLetClause/bindings"/>
+    </genClasses>
+    <genClasses ecoreClass="xpath3.ecore#//SimpleLetBinding">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute xpath3.ecore#//SimpleLetBinding/varName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference xpath3.ecore#//SimpleLetBinding/varInit"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

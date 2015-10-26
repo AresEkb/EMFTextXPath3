@@ -86,8 +86,8 @@ RULES {
     // TODO: Sometimes model isn't fully updated in a outline window
 
     // Sequence Expressions, Comparison Expressions, Logical Expressions
-    Expr ::= expr:IfExpr,ForExpr,QuantifiedExpr,OrExpr
-        ("," expr:IfExpr,ForExpr,QuantifiedExpr,OrExpr)*;
+    Expr ::= expr:IfExpr,ForExpr,LetExpr,QuantifiedExpr,OrExpr
+        ("," expr:IfExpr,ForExpr,LetExpr,QuantifiedExpr,OrExpr)*;
     ForExpr ::= "for" #1 iterator ("," #1 iterator)* #1 "return" #1 return;
     QuantifiedExpr ::= quantifier[some : "some", every : "every"] #1
         iterator ("," #1 iterator)*
@@ -97,6 +97,9 @@ RULES {
     IfExpr ::= "if" #1 "(" test:Expr,IfExpr,ForExpr,QuantifiedExpr,OrExpr ")"
         #1 "then" #1 then:IfExpr,ForExpr,QuantifiedExpr,OrExpr
         #1 "else" #1 else:IfExpr,ForExpr,QuantifiedExpr,OrExpr;
+    LetExpr	::=   	clause:SimpleLetClause #1 "return" #1 inExpr:ExprSingle;
+   	SimpleLetClause	::=   	"let" #1 bindings:SimpleLetBinding ("," #1 bindings:SimpleLetBinding)*;
+   	SimpleLetBinding ::=   	"$" varName[QNAME] #1 ":=" #1 varInit:ExprSingle;
     OrExpr ::= operand:AndExpr (#1 "or" #1 operand:AndExpr)*;
     AndExpr ::= operand:ComparisonExpr (#1 "and" #1 operand:ComparisonExpr)*;
     ComparisonExpr ::= left:RangeExpr (#1 operator #1 right:RangeExpr)?;

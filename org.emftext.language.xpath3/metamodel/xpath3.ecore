@@ -392,4 +392,20 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="comment" upperBound="-1"
         eType="#//Comment" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LetExpr" eSuperTypes="#//ExprSingle">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="clause" lowerBound="1"
+        eType="#//SimpleLetClause" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inExpr" lowerBound="1"
+        eType="#//ExprSingle" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleLetClause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" lowerBound="1"
+        upperBound="-1" eType="#//SimpleLetBinding" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleLetBinding">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="varName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//QName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="varInit" lowerBound="1"
+        eType="#//ExprSingle" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>
