@@ -1,7 +1,10 @@
-EMFTextXPath2
+EMFTextXPath3
 =============
 
 An implementation of XPath 3.0 metamodel (http://www.w3.org/TR/xpath-30/).
+
+The project is based on https://github.com/AresEkb/EMFTextXPath2
+It doesn't implement XPath 3.0 recommendation fully yet.
 
 Overview
 --------
@@ -104,7 +107,7 @@ License
 -------
 
 <pre>
-Copyright (c) 2013 Denis Nikiforov.
+Copyright (c) 2013, 2015 Denis Nikiforov.
 All rights reserved. This program and the accompanying materials
 are made available under the terms of the Eclipse Public License v1.0
 which accompanies this distribution, and is available at
